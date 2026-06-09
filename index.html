@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Italian Pizza - Blue Area</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Italian Pizza home">
+      <img class="brand-logo" src="assets/italian-pizza-logo.jpeg" alt="Italian Pizza logo">
+      <span>
+        <strong>Italian Pizza</strong>
+        <small id="headerLocation">Blue Area, Islamabad</small>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#menu">Menu</a>
+      <a href="#membership">Membership</a>
+      <a href="#about">About</a>
+      <a href="#footer">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Dine in, takeaway and home delivery</p>
+        <h1>Italian Pizza</h1>
+        <p class="hero-text">Freshly baked pizzas, crispy burgers, family deals, and member-only savings made for Blue Area cravings.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#menu">Order Now</a>
+          <button class="button subtle" type="button" id="openMembership">Get Membership</button>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img id="heroImage" src="assets/Pizza.jpg" alt="Fresh Italian pizza">
+      </div>
+    </section>
+
+    <section id="menu" class="section menu-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Browse and add to bag</p>
+          <h2>Menu</h2>
+        </div>
+        <p class="section-note">Admin can edit categories, items, photos, names, prices, and descriptions from the private page.</p>
+      </div>
+
+      <div class="tabs" id="tabs" role="tablist" aria-label="Menu categories"></div>
+      <div id="menuGrid" class="menu-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="membership" class="section membership">
+      <div class="membership-copy">
+        <p class="eyebrow">One time payment</p>
+        <h2>Lifetime Membership</h2>
+        <p>Become an Italian Pizza member for just <strong>1000 PKR</strong> and unlock exclusive member-only deals plus your choice of <strong>50% off</strong> or <strong>Buy 1 Get 1 Free</strong> on every order.</p>
+        <button class="button primary" type="button" id="openMembershipTwo">Get Membership</button>
+      </div>
+      <div class="benefits">
+        <article>
+          <span>01</span>
+          <h3>Exclusive member-only deals</h3>
+          <p>Access special combinations reserved for card holders.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>50% off or Buy 1 Get 1 Free</h3>
+          <p>Choose your preferred member benefit at checkout for every single order.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Show your card on delivery</h3>
+          <p>Members must show the membership card to receive the selected discount.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="about-media">
+        <img id="aboutImage" src="" alt="Restaurant food">
+      </div>
+      <div>
+        <p class="eyebrow">About us</p>
+        <h2 id="aboutTitle"></h2>
+        <p id="aboutText"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="site-footer">
+    <div>
+      <a class="brand footer-brand" href="#top">
+        <img class="brand-logo" src="assets/italian-pizza-logo.jpeg" alt="Italian Pizza logo">
+        <span>
+          <strong>Italian Pizza</strong>
+          <small id="footerLocationSmall"></small>
+        </span>
+      </a>
+      <p id="footerTagline"></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <div id="footerPhones"></div>
+    </div>
+    <div>
+      <h3>Location</h3>
+      <p id="footerAddress"></p>
+      <a id="mapLink" href="#" target="_blank" rel="noreferrer">Open Google Map</a>
+    </div>
+    <div>
+      <h3>Timings</h3>
+      <p id="footerTimings"></p>
+      <div class="social-links">
+        <a id="facebookLink" href="#" target="_blank" rel="noreferrer">Facebook</a>
+        <a id="tiktokLink" href="#" target="_blank" rel="noreferrer">TikTok</a>
+        <a id="instagramLink" href="#" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+    </div>
+    <a class="admin-entry" href="admin.html">Admin Login</a>
+  </footer>
+
+  <button class="bag-button" type="button" id="openCart" aria-label="Open shopping bag">
+    <span class="bag-icon" aria-hidden="true">Bag</span>
+    <strong id="cartCount">0</strong>
+  </button>
+
+  <div class="drawer-backdrop" id="cartBackdrop" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow">Your order</p>
+        <h2>Shopping Bag</h2>
+      </div>
+      <button class="icon-button" type="button" id="closeCart" aria-label="Close cart">x</button>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+      <p class="empty-cart">Your bag is empty.</p>
+    </div>
+
+    <div class="member-controls">
+      <label class="checkbox-row">
+        <input id="memberToggle" type="checkbox">
+        <span>I am a lifetime member</span>
+      </label>
+      <fieldset id="memberDealGroup" class="deal-switch" disabled>
+        <legend>Choose your member benefit</legend>
+        <label>
+          <input type="radio" name="memberDeal" value="50% off">
+          <span>50% off</span>
+        </label>
+        <label>
+          <input type="radio" name="memberDeal" value="Buy 1 Get 1 Free">
+          <span>Buy 1 Get 1 Free</span>
+        </label>
+      </fieldset>
+      <p class="member-note">Note: Please show your membership card on delivery to receive this offer.</p>
+    </div>
+
+    <div class="totals">
+      <div><span>Subtotal</span><strong id="subtotal">Rs. 0</strong></div>
+      <div><span>Member savings</span><strong id="discount">Rs. 0</strong></div>
+      <div class="grand-total"><span>Total</span><strong id="total">Rs. 0</strong></div>
+    </div>
+
+    <form id="checkoutForm" class="checkout-form">
+      <label>Name <input name="name" type="text" placeholder="Your full name" required></label>
+      <label>Address <input name="address" type="text" placeholder="House, street, area" required></label>
+      <label>Phone Number <input name="phone" type="tel" placeholder="03xx-xxxxxxx" required></label>
+      <label>Extra Notes <span>Optional</span><textarea name="notes" rows="3" placeholder="Less spicy, extra ketchup, delivery note"></textarea></label>
+      <input id="orderPayload" name="order_summary" type="hidden">
+      <button class="button primary full" type="submit">Place Order</button>
+    </form>
+    <p id="orderStatus" class="order-status" role="status"></p>
+  </aside>
+
+  <div class="modal-backdrop" id="membershipBackdrop" hidden></div>
+  <section class="membership-modal" id="membershipModal" aria-hidden="true" aria-label="Membership options">
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow">Lifetime membership</p>
+        <h2>Get Membership</h2>
+      </div>
+      <button class="icon-button" type="button" id="closeMembership" aria-label="Close membership">x</button>
+    </div>
+    <p class="modal-intro">Lifetime membership costs <strong>Rs. 1000</strong>. Choose how you want to receive your card.</p>
+    <div class="membership-options">
+      <button class="option-card" type="button" id="membershipRestaurant">
+        <strong>Get it from the restaurant</strong>
+        <span>Visit Italian Pizza and collect your membership card at the counter.</span>
+      </button>
+      <button class="option-card" type="button" id="membershipHome">
+        <strong>Order to home</strong>
+        <span>Send your details and we will arrange membership card delivery.</span>
+      </button>
+    </div>
+    <form id="membershipForm" class="checkout-form membership-home-form" hidden>
+      <label>Name <input name="name" type="text" placeholder="Your full name" required></label>
+      <label>Address <input name="address" type="text" placeholder="Delivery address" required></label>
+      <label>Phone Number <input name="phone" type="tel" placeholder="03xx-xxxxxxx" required></label>
+      <input name="request_type" type="hidden" value="Membership card home delivery">
+      <button class="button primary full" type="submit">Request Home Delivery</button>
+    </form>
+    <p id="membershipStatus" class="order-status" role="status"></p>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

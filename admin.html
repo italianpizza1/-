@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Italian Pizza Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+  <main class="admin-shell">
+    <section class="admin-login-card" id="loginCard">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/italian-pizza-logo.jpeg" alt="Italian Pizza logo">
+        <span>
+          <strong>Italian Pizza</strong>
+          <small>Admin Panel</small>
+        </span>
+      </a>
+      <form id="adminLogin" class="checkout-form">
+        <label>Password <input id="adminPassword" type="password" placeholder="Enter admin password" required></label>
+        <button class="button primary full" type="submit">Login</button>
+        <p class="helper-text">Default password: italian1000</p>
+      </form>
+    </section>
+
+    <section class="admin-dashboard" id="adminDashboard" hidden>
+      <div class="admin-topbar">
+        <div>
+          <p class="eyebrow">Private editor</p>
+          <h1>Admin Panel</h1>
+        </div>
+        <div class="admin-top-actions">
+          <a class="button subtle" href="index.html">View Website</a>
+          <button class="button dark" id="saveAll" type="button">Save All</button>
+        </div>
+      </div>
+
+      <div class="admin-grid">
+        <section class="admin-card">
+          <h2>Website Settings</h2>
+          <div class="admin-editor">
+            <label>Formspree endpoint <input id="formspreeEndpoint" type="url" placeholder="https://formspree.io/f/your-form-id"></label>
+            <label>Hero image URL <input id="heroImageInput" type="url"></label>
+            <label>About image URL <input id="aboutImageInput" type="url"></label>
+            <label>About heading <input id="aboutTitleInput" type="text"></label>
+            <label>About text <textarea id="aboutTextInput" rows="5"></textarea></label>
+          </div>
+        </section>
+
+        <section class="admin-card">
+          <h2>Footer, Links & Contact</h2>
+          <div class="admin-editor">
+            <label>Tagline <input id="taglineInput" type="text"></label>
+            <label>Location line <input id="locationInput" type="text"></label>
+            <label>Full address <input id="addressInput" type="text"></label>
+            <label>Google Map URL <input id="mapInput" type="url"></label>
+            <label>Phone numbers <textarea id="phonesInput" rows="3" placeholder="One phone number per line"></textarea></label>
+            <label>Timings <textarea id="timingsInput" rows="3"></textarea></label>
+            <label>Facebook link <input id="facebookInput" type="url"></label>
+            <label>TikTok link <input id="tiktokInput" type="url"></label>
+            <label>Instagram link <input id="instagramInput" type="url"></label>
+          </div>
+        </section>
+
+        <section class="admin-card wide">
+          <div class="admin-card-heading">
+            <div>
+              <h2>Menu Editor</h2>
+              <p class="helper-text">Choose a category, edit an existing item, or add a new item with image URL, name, price, and description.</p>
+            </div>
+            <button class="button subtle" type="button" id="resetData">Reset Demo Data</button>
+          </div>
+
+          <div class="menu-admin-layout">
+            <div>
+              <label class="admin-label">Category
+                <select id="categorySelect"></select>
+              </label>
+              <div id="adminItemList" class="admin-item-list"></div>
+            </div>
+
+            <form id="itemForm" class="admin-editor item-form">
+              <input id="itemId" type="hidden">
+              <label>Where to add
+                <select id="itemCategory"></select>
+              </label>
+              <label>Item name <input id="itemName" type="text" required></label>
+              <label>Price PKR <input id="itemPrice" type="number" min="0" step="1" required></label>
+              <label>Image URL <input id="itemImage" type="url" required></label>
+              <label>Description <textarea id="itemDesc" rows="4" required></textarea></label>
+              <div class="admin-actions">
+                <button class="button primary" type="submit">Save Item</button>
+                <button class="button subtle" type="button" id="newItem">New Item</button>
+                <button class="button danger" type="button" id="deleteItem">Delete Item</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <p id="adminStatus" class="order-status" role="status"></p>
+    </section>
+  </main>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginCard = document.getElementById('loginCard');
+      const adminDashboard = document.getElementById('adminDashboard');
+
+      if (adminDashboard) {
+        adminDashboard.hidden = true;
+        adminDashboard.style.display = 'none';
+      }
+
+      const form = document.getElementById('adminLogin');
+      const passwordInput = document.getElementById('adminPassword');
+
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (passwordInput.value === 'italian1000') {
+          loginCard.style.display = 'none';
+          adminDashboard.hidden = false;
+          adminDashboard.style.display = '';
+        } else {
+          alert('Incorrect password');
+        }
+      });
+    });
+  </script>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
